@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//Dli HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dli">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Life Figure-Outer Application</title>
+	<meta name="author" content="Andrew Fager">
+	<link rel="stylesheet" type="text/css" href="index.css" title="Logical Style" />
+<script type='text/javascript'>
+function notEmpty(elem, helperMsg){
+	if(elem.value.length == 0){
+		alert(helperMsg);
+		elem.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+
+</head>
+<body>
+	<div class="Bod">	
+	<div class="headerContent" align="bottom">
+		<h1>The Magic Life Figure-Outer!</h1>
+		<p>Figuring out your life for you, so you don't have to...<p>
+	</div>
+	
+	<div class="NavigationBar" style="height:2em ;border: 1px solid black">
+		<ul>
+			<li><a class="tooltip" href="#">Home<span class="classic">Just click your heels three times and say "I want to go home"</span></a></li>
+			<li><a href="#">Interests<span class="classic">Running, Jogging and athletics aren't interests their activities</span></a></li>
+			<li><a href="#">Health<span class="classic">Many People believe that their healthy, based on the Average American statistic. You're NOT!</span></a></li>
+			<li><a href="#">Academic<span class="classic">Isn't this just like an old man wearing a patched plaid blazer and some slacks?</span></a></li>
+			<li><a href="#">Professional<span class="classic">These guys make a lot of money??</span></a></li>
+			<li><a href="#">Fun<span class="classic">Dude, where's my computer</span></a></li>
+			<li><a href="#">Evil<span class="classic">My plans to reenact Stalinesque philosophies on the entire human race.</span></a></li>
+		</ul>
+	</div>
+        
+	
+	<div id="main" >
+		<div class="rightbox">
+			<h4 style="padding-bottom: 0px; margin-bottom:0px; padding-top: 0px; margin-top:0px">Current Progress in Life</h4>
+ 			<p style="padding-top: 10px; margin-top:0px">Mediocre. You really should enjoy life more.</p>
+		</div>
+		<h2 id="Ips">Lorem Ipsum Dolor Sit Amet</h2>
+		<form method="post">
+			<label for="feelbox">How do you feel today?
+			<input type="text" name="feelbox" id="feelbox"/></label><br/><br/>
+			<label for="feellist">How would you like to feel?<br/>(choose all that apply)
+			<select id="feellist" multiple name="feellist" style="width: 80%;" size="4">
+				<option value="feeling1">Comfortably numb</option>
+				<option value="feeling2">Grumpy as poop, you jerk</option>
+				<option value="feeling3">Happy like I'm on controlled substances</option>
+				<option value="feeling4">Normal. Absolutely Normal.</option>
+			</select>
+			</label><br/>
+			<input id="submit" type="submit" value="Feel Me" onclick="notEmpty(document.getElementById('feelbox'), 'Surely you feel something?')" />
+		</form>
+		
+
+	</div>
+	
+	<div id="footerContent" align="center">
+		<p>&copy 2011 Borg-Like Monstrosity of Mind Control, Inc. All rights reserved</p>
+	</div>
+	</div>
+   </body>
+</html>
