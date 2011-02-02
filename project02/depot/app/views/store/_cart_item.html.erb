@@ -1,0 +1,13 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><!-- START_HIGHLIGHT -->
+</head><body>&lt;% if cart_item == @current_item %&gt;
+  
+&lt;% else %&gt;
+  
+&lt;% end %&gt;
+<!-- #END_HIGHLIGHT -->
+  &lt;%= cart_item.quantity %&gt;×
+  &lt;%=h cart_item.title %&gt;
+  &lt;%= number_to_currency(cart_item.price) %&gt;
+
+</body></html>

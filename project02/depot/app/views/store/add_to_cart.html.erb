@@ -1,7 +1,13 @@
-<h1>Your Progmatic Cart</h1>
+<div class="cart-title">Your Cart</div>
+<table>
+  <%= render(:partial => "cart_item", :collection => @cart.items) %>  
+  
+  <tr class="total-line">
+    <td colspan="2">Total</td>
+    <td class="total-cell"><%=h number_to_currency(@cart.total_price) %></td>
+  </tr>
 
-<ul>
-	<% for item in @cart.items %>
-		<li><%=h item.title %></li>
-	<% end %>
-</ul>
+</table>
+  
+
+<%= button_to "Empty cart", :action => :empty_cart %>
