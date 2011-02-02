@@ -1,4 +1,5 @@
 <h1>Your Progmatic Catalog</h1>
+
 <% @products.each do |product| -%>
 	<div clas= "entry">
 		<%= image_tag(product.image_url)%>
@@ -6,7 +7,7 @@
 		<%= product.description %>
 		<div class="price-line">
 		<span class="price"><%= number_to_currency(product.price) %></span>
-		<%= button_to 'Add to Cart' %>
+		<%= button_to 'Add to Cart', :action => 'add_to_cart' %>
 		</div>
 	</div>
 <% end %>	

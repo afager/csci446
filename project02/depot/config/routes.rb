@@ -1,8 +1,11 @@
 Depot::Application.routes.draw do
-  get "store/index"
+  get 'store/index'
 
   resources :products
-
+  resources :store
+  
+	#Depot::Application.map.connect ':controller/:action/:id'
+	#Depot::Application.map.connect ':controller/:action/:id.:format'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
