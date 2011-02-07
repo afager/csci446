@@ -1,0 +1,28 @@
+<h1>Listing articls</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Body</th>
+    <th>Date</th>
+  </tr>
+
+<% @articls.each do |articl| %>
+  <tr>
+    <td class = "list-description">
+	<%=h articl.title %>
+    <%=h articl.author %>
+    <%=h articl.body %>
+    <%=h articl.date %></td>
+	
+    <td><%= link_to 'Show', articl %></td>
+    <td><%= link_to 'Edit', edit_articl_path(articl) %></td>
+    <td><%= link_to 'Destroy', articl, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New articl', new_articl_path %>
