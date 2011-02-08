@@ -1,4 +1,10 @@
-<h1>Editing articl</h1>
+<div class=title>
+<h1>Articl.es</h1>
+<p>...Articles for,against and why we all know the muffin man.</p>
+</div>
+
+<%= link_to image_tag('arrow_left.png'),  articls_path , :title=>''%>
+<%= link_to 'Back', session[:redirect] %>
 
 <% form_for(@articl) do |f| %>
   <%= f.error_messages %>
@@ -13,7 +19,7 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_field :body %>
+    <%= f.text_area :body %>
   </p>
   <p>
     <%= f.label :date %><br />
@@ -24,5 +30,3 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @articl %> |
-<%= link_to 'Back', articls_path %>

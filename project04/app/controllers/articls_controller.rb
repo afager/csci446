@@ -1,4 +1,11 @@
 class ArticlsController < ApplicationController
+
+
+before_filter :back_link, :only => [:edit]
+
+	def back_link
+		session[:redirect] = request.referer
+	end
   # GET /articls
   # GET /articls.xml
   def index
@@ -44,7 +51,7 @@ class ArticlsController < ApplicationController
 
     respond_to do |format|
       if @articl.save
-        format.html { redirect_to(@articl, :notice => 'Articl was successfully created.') }
+        format.html { redirect_to(@articl, :success => 'Articl was successfully created.') }
         format.xml  { render :xml => @articl, :status => :created, :location => @articl }
       else
         format.html { render :action => "new" }
@@ -57,17 +64,15 @@ class ArticlsController < ApplicationController
   # PUT /articls/1.xml
   def update
     @articl = Articl.find(params[:id])
-
-    respond_to do |format|
-      if @articl.update_attributes(params[:articl])
-        format.html { redirect_to(@articl, :notice => 'Articl was successfully updated.') }
-        format.xml  { head :ok }
+     if @articl.update_attributes(params[:articl])
+        redirect_to(session[:redirect], :success => 'Articl was successfully updated.')
+        #format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @articl.errors, :status => :unprocessable_entity }
       end
     end
-  end
+  
 
   # DELETE /articls/1
   # DELETE /articls/1.xml
@@ -81,3 +86,5 @@ class ArticlsController < ApplicationController
     end
   end
 end
+
+

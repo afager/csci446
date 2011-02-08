@@ -1,23 +1,26 @@
+<div class=title>
+<h1>Articl.es</h1>
+<p>Why Spanish, really we couldn't do this in Basque?</p>
+</div>
+
+<ul>
+<li><%= link_to image_tag('arrow_left.png'), edit_articl_path(@articl) %>
+<%= link_to 'Back', articls_path %></li>
+<li><%= link_to image_tag('script_edit.png'), edit_articl_path(@articl) %>
+<%= link_to 'Edit', edit_articl_path(@articl) %></li>
+<li><%= link_to image_tag('delete.png'), @articl, :confirm => 'Are you sure?', :method => :delete %></td>
+<%= link_to 'Delete',@articl, :confirm => 'Are you sure?', :method => :delete %></li>
+</ul>
+<h3>
+    <%=h @articl.title %>
+</h3>
+
 <p>
-  <b>Title:</b>
-  <%=h @articl.title %>
+	by
+  <%=h @articl.author %><%=h @articl.date %>
 </p>
 
 <p>
-  <b>Author:</b>
-  <%=h @articl.author %>
+   <%=h simple_format(@articl.body) %>
 </p>
 
-<p>
-  <b>Body:</b>
-  <%=h @articl.body %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%=h @articl.date %>
-</p>
-
-
-<%= link_to 'Edit', edit_articl_path(@articl) %> |
-<%= link_to 'Back', articls_path %>

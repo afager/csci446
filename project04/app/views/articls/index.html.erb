@@ -1,28 +1,42 @@
-<h1>Listing articls</h1>
+<div class=title>
+<h1>Articl.es</h1>
+<p>...The 'dot' com boom ended like ahundred years ago, d'uh</p>
+</div>
+<%= link_to image_tag('add.png'), new_articl_path %>
+<%= link_to 'create a new article', new_articl_path %>
+
 
 <table>
-  <tr>
+  <thead>
+	<tr>
     <th>Title</th>
     <th>Author</th>
     <th>Body</th>
     <th>Date</th>
   </tr>
-
+</thead>
+ <tfoot> 
+	<tr>
+	<td>
+	<p><%= pluralize(@articls.size, 'article')%></p>
+	</td>
+	</tr>
+</tfoot>
+<tbody>
 <% @articls.each do |articl| %>
   <tr>
-    <td class = "list-description">
-	<%=h articl.title %>
-    <%=h articl.author %>
-    <%=h articl.body %>
-    <%=h articl.date %></td>
+    <td><%=h articl.title %></td>
+	<td><%=h articl.author %></td>
+	<td><%=h truncate(articl.body, :length=>32) %></td>
+	<td><%=h articl.date %></dt></td>
 	
-    <td><%= link_to 'Show', articl %></td>
-    <td><%= link_to 'Edit', edit_articl_path(articl) %></td>
-    <td><%= link_to 'Destroy', articl, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to image_tag('zoom.png'), articl %>
+    <%= link_to image_tag('script_edit.png'), edit_articl_path(articl) %>
+    <%= link_to image_tag('delete.png'), articl, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
+ </tbody>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New articl', new_articl_path %>

@@ -1,4 +1,10 @@
-<h1>New articl</h1>
+<div class=title>
+<h1>Articl.es</h1>
+<p>...What are you reading an article or an articl</p>
+</div>
+
+<%= link_to image_tag('arrow_left.png'), articls_path  %>
+<%= link_to 'list all articles', articls_path %>
 
 <% form_for(@articl) do |f| %>
   <%= f.error_messages %>
@@ -13,7 +19,7 @@
   </p>
   <p>
     <%= f.label :body %><br />
-    <%= f.text_field :body %>
+    <%= f.text_area :body %>
   </p>
   <p>
     <%= f.label :date %><br />
@@ -23,5 +29,3 @@
     <%= f.submit 'Create' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', articls_path %>
