@@ -1,0 +1,34 @@
+<div class=title>
+	<h1>Articl.es</h1>
+	<p>...The 'dot' com boom ended like ahundred years ago, d'uh</p>
+</div>
+
+<h2>All the World's Authors</h2>
+<%= link_to image_tag('add.png', :border => 0), new_author_path, :title => "Create a new author" %>
+<%= link_to 'Create an Author', new_author_path, :title => "Create a new author" %>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Author Name </th>
+			</tr>
+		</thead>
+		<tfoot> 
+			<tr>
+				<td>
+					<p><%= pluralize(@authors.size, 'author')%></p>
+				</td>
+			</tr>
+		</tfoot>
+		<% @authors.each do |author| %>
+			<tr>
+				<td><%=h author.name %></td>
+				<td>
+					<%= link_to image_tag('magnifier.png'), author, :title => "View this author" %>
+					<%= link_to image_tag('database_edit.png'), edit_author_path(author), :title => "Edit this author" %>
+					<%= link_to image_tag('database_delete.png'), author, :confirm => 'Are you sure?', :method => :delete, :title => "delete this author" %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<%= will_paginate @authors %>

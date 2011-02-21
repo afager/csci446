@@ -1,0 +1,46 @@
+<div class=title>
+	<h1>Articl.es</h1>
+	<p>...The 'dot' com boom ended like ahundred years ago, d'uh</p>
+</div>
+<ul class=menubar>
+	<li><a href="articls">Articles</a></li>
+	<li><a href="authors">Authors</a></li>
+</ul>
+
+<h2>All the World's Articles</h2>
+<%= link_to image_tag('add.png'), new_articl_path, :title => "Create a new Article" %>
+<%= link_to 'create a new article', new_articl_path, :title => "Create a new Article" %>
+
+
+<table>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Body</th>
+			<th>Created At</th>
+		</tr>
+	</thead>
+	<tfoot> 
+		<tr>
+			<td>
+				<p><%= pluralize(@articles.size, 'article')%></p>
+			</td>
+		</tr>
+	</tfoot>
+	<tbody>
+		<% @articles.each do |article| %>
+		<tr>
+			<td><%=h article.title %></td>
+			<td><%=h article.author %></td>
+			<td><%=h truncate(article.body, :length=>32) %></td>	
+			<td><%=h article.created_at %></td>
+			<td><%= link_to image_tag('zoom.png'), article %>
+				<%= link_to image_tag('script_edit.png'), edit_articl_path(article) %>
+				<%= link_to image_tag('delete.png'), article, :confirm => 'Are you sure?', :method => :delete %></td>
+		</tr>
+	</tbody>
+<% end %>
+</table>
+<br />
+<%= will_paginate @articles %>

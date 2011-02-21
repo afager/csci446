@@ -1,0 +1,30 @@
+<div class=title>
+<h1>Articl.es</h1>
+<p>...What are you reading an article or an articl</p>
+</div>
+
+<ul class=menubar>
+	<li><a href="articls">Articles</a></li>
+	<li><a href="authors">Authors</a></li>
+</ul>
+
+<%= link_to image_tag('arrow_left.png'), authors_path %>
+<%= link_to 'list all authors', authors_path, :title => "Return to Authors page" %>
+
+<h1>New author</h1>
+
+
+<% form_for(@author) do |f| %>
+  <%= f.error_messages %>
+  <p>
+	<%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+	<%= f.label :Photo%><br />
+    <%= f.file_field :photo %>
+  </p>
+  <p>
+     <%= f.submit 'Create Author', :title => "to main articles page (or errors are displayed)" %>
+  </p>
+<% end %>

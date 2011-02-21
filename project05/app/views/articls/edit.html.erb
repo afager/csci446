@@ -1,0 +1,34 @@
+<div class=title>
+<h1>Articl.es</h1>
+<p>...Articles for,against and why we all know the muffin man.</p>
+</div>
+<ul class=menubar>
+	<li><a href="articls">Articles</a></li>
+	<li><a href="authors">Authors</a></li>
+</ul>
+
+<%= link_to image_tag('arrow_left.png'),  articls_path , :title=>'Return to Articles Page'%>
+<%= link_to 'Back', session[:redirect], title => "Go Back" %>
+
+<h2>Editing "<%=h @articl.title %>"</h2>
+
+<% form_for(@articl) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :author_id %><br />
+    <%= f.select :author_id, @authors.collect { |a| [a.name, a.id]}, :include_blank => true %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit 'Update',:title => "Save and Return" %>
+  </p>
+<% end %>
+
