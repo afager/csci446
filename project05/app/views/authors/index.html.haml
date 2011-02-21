@@ -1,0 +1,25 @@
+.title
+  %h1 Articl.es
+  %p ...The 'dot' com boom ended like ahundred years ago, d'uh
+%ul.menubar
+  %li= link_to "articles", articls_path
+  %li= link_to "authors", authors_path
+%h2 All the World's Authors
+= link_to image_tag('add.png'), new_author_path, :title => "Create a new author"
+= link_to 'Create an Author', new_author_path, :title => "Create a new author"
+%table
+  %thead
+    %tr
+      %th Author Name
+  %tfoot
+    %tr
+      %td
+        %p= pluralize(@authors.size, 'author')
+  - @authors.each do |author|
+    %tr
+      %td= h author.name
+      %td
+        = link_to image_tag('zoom.png'), author, :title => "View this author"
+        = link_to image_tag('script_edit.png'), edit_author_path(author), :title => "Edit this author"
+        = link_to image_tag('delete.png'), author, :confirm => 'Are you sure?', :method => :delete, :title => "delete this author"
+= will_paginate @authors

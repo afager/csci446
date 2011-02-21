@@ -1,0 +1,23 @@
+.title
+  %h1 Articl.es
+  %p ...What are you reading an article or an articl
+%ul.menubar
+  %li
+    %a{:href => "articls"} Articles
+  %li
+    %a{:href => "authors"} Authors
+= link_to image_tag('arrow_left.png'), authors_path
+= link_to 'list all authors', authors_path, :title => "Return to Authors page"
+%h1 New author
+- form_for(@author) do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :Photo
+    %br/
+    = f.file_field :photo
+  %p
+    = f.submit 'Create Author', :title => "to main articles page (or errors are displayed)"

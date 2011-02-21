@@ -1,0 +1,23 @@
+.title
+  %h1 Articl.es
+  %p ...Articles for,against and why we all know the muffin man.
+%ul.menubar
+  %li= link_to "articles", articls_path
+  %li= link_to "authors", authors_path
+= link_to image_tag('arrow_left.png'),  articls_path , :title=>'Return to Articles Page'
+= link_to 'Back', session[:redirect], :title => "Go Back"
+%h2
+  Editing "#{h @author.name}"
+- form_for(@author, :html => {:multipart => true}) do |f|
+  = f.error_messages
+  = f.error_messages
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :Photo
+    %br/
+    = f.file_field :photo
+  %p
+    = f.submit 'Update Author', :title => "Save and Return"

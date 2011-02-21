@@ -1,0 +1,35 @@
+.title
+  %h1 Articl.es
+  %p ...The 'dot' com boom ended like ahundred years ago, d'uh
+%ul.menubar
+  %li
+    %a{:href => "articls"} Articles
+  %li
+    %a{:href => "authors"} Authors
+%h2 All the World's Articles
+= link_to image_tag('add.png'), new_articl_path, :title => "Create a new Article"
+= link_to 'create a new article', new_articl_path, :title => "Create a new Article"
+%table
+  %thead
+    %tr
+      %th Title
+      %th Author
+      %th Body
+      %th Created At
+  %tfoot
+    %tr
+      %td
+        %p= pluralize(@articles.size, 'article')
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= h article.title
+        %td= h article.author
+        %td= h truncate(article.body, :length=>32)
+        %td= h article.created_at
+        %td
+          = link_to image_tag('zoom.png'), article
+          = link_to image_tag('script_edit.png'), edit_articl_path(article)
+          = link_to image_tag('delete.png'), article, :confirm => 'Are you sure?', :method => :delete
+%br/
+= will_paginate @articles
