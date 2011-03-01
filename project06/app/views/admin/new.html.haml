@@ -1,0 +1,36 @@
+
+-# ADMIN MUST BE LOGGED IN TO ADD AN ADMIN
+%h1 Admin Registration
+= form_for @admin do |f|
+  - if @admin.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @admin.errors.full_messages
+          %li
+            = messages
+       %p
+        = f.label :Firstname
+        %br/
+        = f.text_field :Firstname
+       %p
+        = f.label :Lastname
+        %br/
+        = f.text_field :Lastname
+       %p
+        = f.label :username
+        %br/
+        = f.text_field :username
+       %p
+        = f.label :email
+        %br/
+        = f.text_field :email
+       %p
+        = f.label :password
+        %br/
+        = f.password_field :password
+       %p
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation
+       %p.button= f.submit

@@ -1,0 +1,19 @@
+.title
+  %h1= @title
+
+-#Need to be logged in to user or admin for this functionality
+
+- form_for @game do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :rating
+    %br
+    = f.text_field :rating
+  %p
+    = f.submit
+	
+%p= link_to "Back to List", games_path
