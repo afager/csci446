@@ -1,0 +1,23 @@
+#content
+  .title
+    %h1= link_to @title, games_path
+   
+  .pub_nav 
+    %p= link_to "Register", register_path
+    %p= link_to "Login", login_path
+	
+%ul
+  = link_to image_tag('arrow_left.png', :border => 0), games_path, :title => "return to main games page"
+  = link_to 'list all games', games_path, :title => "return to main games page"
+  = link_to image_tag('database_edit.png', :border => 0), edit_game_path(@game), :title => "edit this game"
+  = link_to 'edit', edit_game_path(@game), :title => "edit this game"
+  = link_to image_tag('database_delete.png', :border => 0), @game, :confirm => 'Are you sure?', :method => :delete, :title => "delete this game"
+  = link_to 'delete', @game, :confirm => 'Are you sure?', :method => :delete, :title => "delete this game"
+  = link_to image_tag('email.png', :border => 0), :title => "email this game"
+  = link_to 'email', :title => "email this game"
+%h2= h @game.title
+%p
+  = h @game.rating
+%p
+  by #{h @game.user}. #{h @game.created_at.strftime("%A, %b. %d, %Y")}
+%br/

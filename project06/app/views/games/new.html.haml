@@ -1,9 +1,9 @@
 .title
-  %h1= @title
+  %h1= link_to @title, games_path
 
 -#Need to be logged in to user or admin for this functionality
 
-- form_for @game do |f|
+- form_for (@game) do |f|
   = f.error_messages
   %p
     = f.label :name
@@ -14,6 +14,10 @@
     %br
     = f.text_field :rating
   %p
-    = f.submit
+    = f.label :user
+    %br
+    = f.text_field :user
+  %p
+    = f.submit , :title => "Create the Game!"
 	
 %p= link_to "Back to List", games_path

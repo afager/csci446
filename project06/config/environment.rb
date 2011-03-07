@@ -22,6 +22,15 @@ Rails::Initializer.run do |config|
  config.gem 'will_paginate'
  config.gem 'paperclip'
  config.gem 'haml'
+ config.gem "authlogic"
+ config.gem "declarative_authorization", :source => "http://gemcutter.org"
+ config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
+ 
+ 
+ ENV['RECAPTCHA_PUBLIC_KEY']  = '6LexOMISAAAAAHNcim4TgxEX7zF51DFUpBHwcoBR '
+ ENV['RECAPTCHA_PRIVATE_KEY'] = '6LexOMISAAAAAIEgccVpWIAPPAQzx1fNTHcPySxP'
+
+ 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
