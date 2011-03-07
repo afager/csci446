@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.register "register", :controller => "admin_user", :action => "new"
   map.edit "edit", :controller => "games", :action => "edit"
   map.edit_user "edit_user", :controller => "admin_user", :action => "edit"
-  map.new "new_game", :controller => "games", :action => "new"
+  map.new "new_game", :controller => "games", :action => "new" 
   
   map.resources :user_sessions, :only => [:new, :create, :destroy]
    

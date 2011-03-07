@@ -1,5 +1,5 @@
 .title
-  %h1= link_to @title, games_path
+  %h1= link_to @title, root_url
 
 -#Need to be logged in to user or admin for this functionality
 
@@ -20,4 +20,4 @@
   %p
     = f.submit , :title => "Create the Game!"
 	
-%p= link_to "Back to List", games_path
+%p= link_to "Back to List", root_url
