@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.root :controller => 'user_sessions', :action => "new"
+ 
   map.login "login", :controller => "user_sessions", :action => "new"
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
-    
+  map.register "register", :controller => "admin_user", :action => "new"
+  map.edit "edit", :controller => "games", :action => "edit"
+  map.edit_user "edit_user", :controller => "admin_user", :action => "edit"
+  map.new "new_game", :controller => "games", :action => "new"
   
   map.resources :user_sessions, :only => [:new, :create, :destroy]
    
@@ -17,4 +20,5 @@ ActionController::Routing::Routes.draw do |map|
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-end
+  map.root :controller => 'games', :action => "index"
+  end

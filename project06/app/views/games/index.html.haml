@@ -4,13 +4,12 @@
   
   -if permitted_to? :login, @user
     .pub_nav 
-      %p= link_to "Register", new_user_path
-      %p= link_to "Login", login_path
-  -else
-    .pub_nav
       %p= link_to "Edit", root_url
       %p= link_to "Logout", logout_path	  
-      
+  -else
+    .pub_nav
+      %p= link_to "Register",register_path
+      %p= link_to "Login", login_path
   
   %table
     %tr
@@ -22,4 +21,4 @@
         %td= h game.rating
         %td= #{h @game.created_at.strftime("%A, %b. %d, %Y")}. by #{h @game.creator}
         = will_paginate @games
-  %p= link_to "New Game", root_url
+  %p= link_to "New Game", new_path

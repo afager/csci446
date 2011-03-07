@@ -51,4 +51,40 @@ a:hover { color: #fff; background-color:#000; }
   font-size: 12px;
   list-style: square;
 }
+div.title {
+text-align:center;
+}
 
+table{
+height: 200px;
+width: 100%;
+overflow: auto;
+}
+thead {
+background-COLOR: #EEEFFF;
+}
+img {
+border:none;
+}
+div.pub_nav{
+float: right;
+
+}
+
+
+ul.menubar{
+list-style: none;
+margin:0px 0px 5px 0px;
+padding:10px;
+background-color: #EEEFFF;
+}
+ul.menubar li{
+display:inline;
+margin-right: 50px;
+padding:0px;
+}
+ul.ListofGames{
+list-style: none;
+margin:0px 0px 5px 0px;
+padding:10px;
+}
