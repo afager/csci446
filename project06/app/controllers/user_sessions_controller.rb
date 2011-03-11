@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
     @user_session = UserSession.new(params[:user_session])
     if @user_session.save
       flash[:notice] = "Successfully Logged in."
-      redirect_to root_url
+	  :access?
     else
       render :action => 'new'
     end
@@ -22,4 +22,11 @@ class UserSessionsController < ApplicationController
     flash[:notice] = "Successfully Logged out."
     redirect_to root_url
   end
+  def access?
+      if User.find_by_username(@user_session.username).role.name == "admin"
+         redirect_to admin_root_url
+      else
+         redirect_to member_root_url
+      end
+   end
 end

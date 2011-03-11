@@ -6,16 +6,15 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   filter_parameter_logging :password
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
-  #before_filter{|c|Authorization.current_user=c.current_user}
   helper_method :current_user_session, :current_user
-  
+  #before_filter{|c|Authorization.current_user=c.current_user}
   
   protected
    def set_current_user
      Authorization.current_user = current_user
    end  
    def permission_denied
-      flash[error]="You do not have permission to view this page!"
+      flash[notice]="You do not have permission to view this page!"
       redirect_to root_url
    end
    

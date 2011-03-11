@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 	validates_presence_of :Firstname
 	validates_presence_of :Lastname
 	validates_uniqueness_of :email, :username
-
+    
+	
 	has_many :games
 	has_many :roles#, :through=>assignments
 	
@@ -24,7 +25,7 @@ class User < ActiveRecord::Base
 	@@per_page = 10
     
 	def role_symbols
-         [ role.name.downcase.to_sym ]
+         [ roles.name.downcase.to_sym ]
     end
 	
 	

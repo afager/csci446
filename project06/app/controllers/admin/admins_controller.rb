@@ -6,17 +6,17 @@ class Admin::AdminController < ApplicationController
   
   
   def index
-	#@admin = Admin.new
+	@admin = Admin.new
   end
 
-  #def create
-	#@admin = Admin.new(params[:admin])
-	#if @admin.save
-	#	redirect_to root_url, :notice => "Registration Successful"
-	#else
-	#	render "new"
-	#end
-  #end
+  def create
+	@admin = Admin.new(params[:admin])
+	if @admin.save
+		redirect_to root_url, :notice => "Registration Successful"
+	else
+		render "new"
+	end
+  end
  protected
  
    def permission_denied
@@ -25,7 +25,7 @@ class Admin::AdminController < ApplicationController
 	    format.hmtl { redirect_to admin_root_url}
 		format.xml {head :unauthorized}
 		format.js {head :unauthorized}
-	  #redirect_to root_url
+	  redirect_to root_url
 	  end
    end  
   
